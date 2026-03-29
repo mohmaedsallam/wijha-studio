@@ -1,333 +1,588 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="ltr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Privacy Policy — unfinished</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&family=Noto+Sans+Arabic:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
+        /* ========== CSS Variables — Light (Default) ========== */
+        :root {
+            --background: #FAFAF8;
+            --surface: #FFFFFF;
+            --card: #FFFFFF;
+            --text: #1A1A1A;
+            --textSecondary: #6B7280;
+            --accent: #8B7CF6;
+            --accentSoft: #EDE9FE;
+            --border: #E5E7EB;
+            --placeholder: #9CA3AF;
+            --inputBg: #F3F4F6;
+            --font-latin: 'Nunito', sans-serif;
+            --font-arabic: 'Noto Sans Arabic', sans-serif;
+            --radius: 16px;
+            --radiusSm: 10px;
+            --shadow: 0 1px 3px rgba(0, 0, 0, 0.04), 0 4px 12px rgba(0, 0, 0, 0.06);
+            --shadowHover: 0 2px 8px rgba(0, 0, 0, 0.06), 0 8px 24px rgba(0, 0, 0, 0.1);
+            --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        /* ========== Dark Mode ========== */
+        [data-theme="dark"] {
+            --background: #0F0F0F;
+            --surface: #1A1A1A;
+            --card: #252525;
+            --text: #F5F5F5;
+            --textSecondary: #9CA3AF;
+            --accent: #A78BFA;
+            --accentSoft: #2D2640;
+            --border: #333333;
+            --placeholder: #6B7280;
+            --inputBg: #252525;
+            --shadow: 0 1px 3px rgba(0, 0, 0, 0.2), 0 4px 12px rgba(0, 0, 0, 0.3);
+            --shadowHover: 0 2px 8px rgba(0, 0, 0, 0.3), 0 8px 24px rgba(0, 0, 0, 0.4);
+        }
+
+        /* ========== Reset ========== */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
+        /* ========== Body ========== */
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 
-                         Roboto, Oxygen, Ubuntu, sans-serif;
+            font-family: var(--font-latin);
             line-height: 1.7;
-            color: #2d2d2d;
-            background-color: #fafaf8;
-            padding: 24px;
-            max-width: 720px;
+            color: var(--text);
+            background-color: var(--background);
+            transition: background-color var(--transition), color var(--transition);
+            min-height: 100vh;
+        }
+
+        [dir="rtl"] body {
+            font-family: var(--font-arabic);
+        }
+
+        /* ========== Container ========== */
+        .container {
+            max-width: 680px;
             margin: 0 auto;
+            padding: 24px 20px 60px;
         }
 
-        .header {
-            text-align: center;
-            padding: 40px 0 32px;
-            border-bottom: 1px solid #e8e6e1;
-            margin-bottom: 32px;
+        /* ========== Top Controls ========== */
+        .controls {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 0 16px;
         }
 
-        .app-icon {
-            width: 64px;
-            height: 64px;
-            background: #f0eeea;
-            border-radius: 16px;
+        .control-btn {
             display: flex;
             align-items: center;
             justify-content: center;
-            margin: 0 auto 16px;
-            font-size: 28px;
+            gap: 6px;
+            padding: 8px 14px;
+            border: 1px solid var(--border);
+            border-radius: 100px;
+            background: var(--surface);
+            color: var(--textSecondary);
+            font-size: 13px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all var(--transition);
+            font-family: inherit;
+            user-select: none;
+        }
+
+        [dir="rtl"] .control-btn {
+            font-family: var(--font-arabic);
+        }
+
+        .control-btn:hover {
+            border-color: var(--accent);
+            color: var(--accent);
+            background: var(--accentSoft);
+        }
+
+        .control-btn svg {
+            width: 16px;
+            height: 16px;
+            flex-shrink: 0;
+        }
+
+        /* ========== Header ========== */
+        .header {
+            text-align: center;
+            padding: 32px 0 40px;
+        }
+
+        .app-icon {
+            width: 72px;
+            height: 72px;
+            background: var(--accentSoft);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 32px;
             font-weight: 700;
-            color: #8b7355;
+            color: var(--accent);
             font-style: italic;
+            font-family: var(--font-latin);
+            transition: all var(--transition);
         }
 
         .app-name {
-            font-size: 20px;
-            font-weight: 600;
-            color: #2d2d2d;
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--text);
             margin-bottom: 4px;
+            letter-spacing: -0.5px;
         }
 
         .page-title {
-            font-size: 14px;
-            color: #8b8680;
+            font-size: 13px;
+            color: var(--accent);
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 2px;
+            font-weight: 700;
+            margin-bottom: 16px;
         }
 
         .effective-date {
-            font-size: 13px;
-            color: #8b8680;
-            margin-top: 8px;
+            font-size: 14px;
+            color: var(--textSecondary);
+            line-height: 1.6;
+            max-width: 480px;
+            margin: 0 auto;
         }
 
+        /* ========== Divider ========== */
+        .divider {
+            height: 1px;
+            background: var(--border);
+            margin: 0 0 36px;
+            transition: background-color var(--transition);
+        }
+
+        /* ========== Sections ========== */
         .section {
-            margin-bottom: 28px;
+            margin-bottom: 24px;
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 24px;
+            box-shadow: var(--shadow);
+            transition: all var(--transition);
+        }
+
+        .section:hover {
+            box-shadow: var(--shadowHover);
+            transform: translateY(-1px);
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 12px;
         }
 
         .section-number {
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            width: 28px;
-            height: 28px;
-            background: #8b7355;
+            width: 32px;
+            height: 32px;
+            background: var(--accent);
             color: white;
-            border-radius: 8px;
-            font-size: 13px;
-            font-weight: 600;
-            margin-bottom: 8px;
+            border-radius: var(--radiusSm);
+            font-size: 14px;
+            font-weight: 700;
+            flex-shrink: 0;
+            font-family: var(--font-latin);
+        }
+
+        [data-theme="dark"] .section-number {
+            color: #0F0F0F;
         }
 
         .section h2 {
-            font-size: 16px;
-            font-weight: 600;
-            color: #2d2d2d;
-            margin-bottom: 8px;
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--text);
             text-transform: uppercase;
-            letter-spacing: 0.5px;
+            letter-spacing: 0.8px;
         }
 
         .section p {
             font-size: 15px;
-            color: #4a4640;
+            color: var(--textSecondary);
+            line-height: 1.8;
         }
 
+        /* ========== Contact Card ========== */
         .contact-card {
-            background: #f0eeea;
-            border-radius: 12px;
-            padding: 20px;
-            margin-top: 32px;
+            background: var(--accentSoft);
+            border: 1px solid var(--accent);
+            border-radius: var(--radius);
+            padding: 28px;
+            margin-top: 36px;
             text-align: center;
+            transition: all var(--transition);
+        }
+
+        .contact-card .contact-title {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--text);
+            margin-bottom: 8px;
         }
 
         .contact-card p {
             font-size: 14px;
-            color: #4a4640;
-            margin-bottom: 8px;
+            color: var(--textSecondary);
+            margin-bottom: 16px;
+            line-height: 1.6;
         }
 
-        .contact-card a {
-            color: #8b7355;
+        .contact-email {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 24px;
+            background: var(--accent);
+            color: white;
+            border-radius: 100px;
             text-decoration: none;
-            font-weight: 600;
+            font-weight: 700;
+            font-size: 14px;
+            transition: all var(--transition);
+            font-family: inherit;
         }
 
-        .contact-card a:hover {
-            text-decoration: underline;
+        [dir="rtl"] .contact-email {
+            font-family: var(--font-arabic);
         }
 
+        [data-theme="dark"] .contact-email {
+            color: #0F0F0F;
+        }
+
+        .contact-email:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 16px rgba(139, 124, 246, 0.4);
+        }
+
+        .contact-email svg {
+            width: 16px;
+            height: 16px;
+        }
+
+        /* ========== Footer ========== */
         .footer {
             text-align: center;
-            padding: 32px 0;
-            border-top: 1px solid #e8e6e1;
-            margin-top: 32px;
+            padding: 36px 0 20px;
+            margin-top: 36px;
+            border-top: 1px solid var(--border);
+            transition: border-color var(--transition);
         }
 
-        .footer p {
+        .footer-studio {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--textSecondary);
+            margin-bottom: 4px;
+        }
+
+        .footer-tagline {
             font-size: 13px;
-            color: #8b8680;
+            color: var(--placeholder);
         }
 
-        .footer a {
-            color: #8b7355;
-            text-decoration: none;
+        /* ========== Animations ========== */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(16px);
+            animation: fadeInUp 0.5s ease forwards;
         }
 
-        /* RTL Support */
-        [dir="rtl"] body {
-            font-family: 'Noto Sans Arabic', -apple-system, sans-serif;
+        .fade-in:nth-child(1) { animation-delay: 0.05s; }
+        .fade-in:nth-child(2) { animation-delay: 0.1s; }
+        .fade-in:nth-child(3) { animation-delay: 0.15s; }
+        .fade-in:nth-child(4) { animation-delay: 0.2s; }
+        .fade-in:nth-child(5) { animation-delay: 0.25s; }
+        .fade-in:nth-child(6) { animation-delay: 0.3s; }
+        .fade-in:nth-child(7) { animation-delay: 0.35s; }
+        .fade-in:nth-child(8) { animation-delay: 0.4s; }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
-        /* Dark mode for users who prefer it */
-        @media (prefers-color-scheme: dark) {
-            body {
-                background-color: #1a1917;
-                color: #e8e6e1;
+        /* ========== Responsive ========== */
+        @media (max-width: 480px) {
+            .container {
+                padding: 16px 16px 48px;
             }
 
             .header {
-                border-bottom-color: #2d2b28;
+                padding: 24px 0 32px;
             }
 
             .app-icon {
-                background: #2d2b28;
-                color: #c4a87a;
+                width: 60px;
+                height: 60px;
+                font-size: 28px;
+                border-radius: 16px;
             }
 
             .app-name {
-                color: #e8e6e1;
+                font-size: 20px;
             }
 
-            .section h2 {
-                color: #e8e6e1;
-            }
-
-            .section p {
-                color: #b5b0a8;
+            .section {
+                padding: 20px;
             }
 
             .contact-card {
-                background: #2d2b28;
-            }
-
-            .contact-card p {
-                color: #b5b0a8;
-            }
-
-            .contact-card a {
-                color: #c4a87a;
-            }
-
-            .footer {
-                border-top-color: #2d2b28;
-            }
-
-            .section-number {
-                background: #c4a87a;
-                color: #1a1917;
+                padding: 24px 20px;
             }
         }
     </style>
 </head>
 <body>
 
-    <div class="header">
-        <div class="app-icon">u</div>
-        <div class="app-name">unfinished</div>
-        <div class="page-title">Privacy Policy</div>
-        <div class="effective-date">Effective Date: [Month Day, Year]</div>
+    <div class="container">
+
+        <!-- Controls -->
+        <div class="controls">
+            <button class="control-btn" id="langToggle" onclick="toggleLanguage()">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <line x1="2" y1="12" x2="22" y2="12"></line>
+                    <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+                </svg>
+                <span id="langLabel">العربية</span>
+            </button>
+            <button class="control-btn" id="themeToggle" onclick="toggleTheme()">
+                <svg id="themeIcon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                </svg>
+                <span id="themeLabel">Dark</span>
+            </button>
+        </div>
+
+        <!-- Header -->
+        <div class="header">
+            <div class="app-icon">u</div>
+            <div class="app-name">unfinished</div>
+            <div class="page-title" id="pageTitle">Privacy Policy</div>
+            <div class="effective-date" id="effectiveDate">
+                Effective date: January 1, 2025. Your privacy is foundational to unfinished. Here's exactly how we handle — or rather, don't handle — your data.
+            </div>
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- Sections -->
+        <div id="sections-container">
+            <!-- Sections will be injected by JavaScript -->
+        </div>
+
+        <!-- Contact Card -->
+        <div class="contact-card fade-in">
+            <div class="contact-title" id="contactTitle">Questions?</div>
+            <p id="contactDesc">If you have any questions about this privacy policy, reach out to us.</p>
+            <a href="mailto:support.wijhastudio@gmail.com" class="contact-email">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                    <polyline points="22,6 12,13 2,6"></polyline>
+                </svg>
+                support.wijhastudio@gmail.com
+            </a>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            <div class="footer-studio">Wijha Studio · استوديو وِجهة</div>
+            <div class="footer-tagline" id="footerTagline">Made with care for everyone with unfinished things</div>
+        </div>
+
     </div>
 
-    <div class="section">
-        <div class="section-number">1</div>
-        <h2>Data Collection</h2>
-        <p>
-            unfinished does not collect, transmit, or store any personal 
-            data on external servers. All your data — including your 
-            unfinished items, decisions, emotional weight scores, 
-            preferences, and settings — is stored locally on your 
-            device only.
-        </p>
-    </div>
+    <script>
+        // ========== Translations ==========
+        const translations = {
+            en: {
+                pageTitle: "Privacy Policy",
+                effectiveDate: "Effective date: January 1, 2025. Your privacy is foundational to unfinished. Here's exactly how we handle — or rather, don't handle — your data.",
+                contactTitle: "Questions?",
+                contactDesc: "If you have any questions about this privacy policy, reach out to us.",
+                footerTagline: "Made with care for everyone with unfinished things",
+                langLabel: "العربية",
+                themeLabel: { light: "Dark", dark: "Light" },
+                sections: [
+                    {
+                        title: "DATA COLLECTION",
+                        body: "unfinished does not collect any personal data. All information you enter — item names, notes, emotional scores, decisions — is stored exclusively on your device using local storage. We have no servers, no databases, and no way to access your data."
+                    },
+                    {
+                        title: "LOCAL STORAGE ONLY",
+                        body: "Your shelf data lives entirely on your device. It is never transmitted to any external service. Uninstalling the app or clearing browser data will permanently remove all your data. We recommend using the Export feature to back up your shelf."
+                    },
+                    {
+                        title: "NO TRACKING",
+                        body: "We do not use analytics, advertising trackers, or third-party SDKs that collect user behavior. We do not know how you use the app, which items you add, or any decisions you make."
+                    },
+                    {
+                        title: "PHOTOS",
+                        body: "Photos you add to items are stored locally on your device's filesystem. They are not uploaded, transmitted, or accessible to anyone but you."
+                    },
+                    {
+                        title: "CHILDREN'S PRIVACY",
+                        body: "unfinished is not directed toward children under 13. We do not knowingly collect data from children. If you believe your child has used this app, please note that no data is transmitted or stored on our end."
+                    },
+                    {
+                        title: "CHANGES TO THIS POLICY",
+                        body: "If we ever change our privacy practices, this policy will be updated and the change will be communicated via an app update. We are committed to keeping this app private and respecting your emotional space."
+                    }
+                ]
+            },
+            ar: {
+                pageTitle: "سياسة الخصوصية",
+                effectiveDate: "تاريخ السريان: 1 يناير 2025. خصوصيتك أساسية في unfinished. إليك بالضبط كيف نتعامل — أو بالأحرى، لا نتعامل — مع بياناتك.",
+                contactTitle: "أسئلة؟",
+                contactDesc: "إذا كان لديك أي أسئلة حول سياسة الخصوصية هذه، تواصل معنا.",
+                footerTagline: "صُنع بعناية لكل من لديه أشياء لم يُكملها",
+                langLabel: "English",
+                themeLabel: { light: "داكن", dark: "فاتح" },
+                sections: [
+                    {
+                        title: "جمع البيانات",
+                        body: "لا يجمع unfinished أي بيانات شخصية. جميع المعلومات التي تدخلها — أسماء العناصر، الملاحظات، الدرجات العاطفية، القرارات — تُخزن حصريًا على جهازك باستخدام التخزين المحلي. ليس لدينا خوادم، لا قواعد بيانات، ولا طريقة للوصول إلى بياناتك."
+                    },
+                    {
+                        title: "التخزين المحلي فقط",
+                        body: "بيانات رفك تعيش بالكامل على جهازك. لا يتم نقلها أبدًا إلى أي خدمة خارجية. حذف التطبيق أو مسح بيانات المتصفح سيزيل جميع بياناتك نهائيًا. نوصي باستخدام ميزة التصدير لنسخ رفك احتياطيًا."
+                    },
+                    {
+                        title: "لا تتبع",
+                        body: "لا نستخدم أدوات تحليل، متتبعات إعلانية، أو حزم SDK تابعة لجهات خارجية تجمع سلوك المستخدم. لا نعرف كيف تستخدم التطبيق، أي العناصر تضيفها، أو أي قرارات تتخذها."
+                    },
+                    {
+                        title: "الصور",
+                        body: "الصور التي تضيفها للعناصر تُخزن محليًا على نظام ملفات جهازك. لا يتم رفعها أو نقلها أو الوصول إليها من قبل أي شخص غيرك."
+                    },
+                    {
+                        title: "خصوصية الأطفال",
+                        body: "unfinished ليس موجهًا للأطفال تحت سن 13. لا نجمع بيانات من الأطفال عن علم. إذا كنت تعتقد أن طفلك استخدم هذا التطبيق، يرجى ملاحظة أنه لا يتم نقل أو تخزين أي بيانات من جانبنا."
+                    },
+                    {
+                        title: "التغييرات على هذه السياسة",
+                        body: "إذا غيرنا ممارسات الخصوصية الخاصة بنا، سيتم تحديث هذه السياسة وسيتم إبلاغ التغيير عبر تحديث التطبيق. نحن ملتزمون بالحفاظ على هذا التطبيق خاصًا واحترام مساحتك العاطفية."
+                    }
+                ]
+            }
+        };
 
-    <div class="section">
-        <div class="section-number">2</div>
-        <h2>Local Storage</h2>
-        <p>
-            Your items, decisions, emotional weight scores, photos, 
-            and preferences are saved using on-device storage (MMKV). 
-            This data never leaves your device. We cannot access, 
-            read, or recover your data — it is entirely under your 
-            control.
-        </p>
-    </div>
+        // ========== State ==========
+        let currentLang = 'en';
+        let currentTheme = 'light';
 
-    <div class="section">
-        <div class="section-number">3</div>
-        <h2>Photos</h2>
-        <p>
-            Photos you add to items are stored locally on your 
-            device's filesystem. They are not uploaded, transmitted, 
-            or accessible to anyone but you. Photos are only used 
-            within the app to display alongside your items.
-        </p>
-    </div>
+        // ========== Initialize ==========
+        function init() {
+            // Check system preference for dark mode
+            if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                currentTheme = 'dark';
+            }
 
-    <div class="section">
-        <div class="section-number">4</div>
-        <h2>Notifications</h2>
-        <p>
-            If you enable reminders, the app schedules local 
-            notifications on your device. No notification data 
-            is sent to any server. You can disable notifications 
-            at any time through the app settings or your device 
-            settings.
-        </p>
-    </div>
+            // Check URL params
+            const params = new URLSearchParams(window.location.search);
+            if (params.get('lang') === 'ar') currentLang = 'ar';
+            if (params.get('theme') === 'dark') currentTheme = 'dark';
+            if (params.get('theme') === 'light') currentTheme = 'light';
 
-    <div class="section">
-        <div class="section-number">5</div>
-        <h2>Analytics & Tracking</h2>
-        <p>
-            unfinished does not use any analytics services, 
-            tracking pixels, advertising SDKs, or any form of 
-            usage monitoring. We do not track your behavior, 
-            usage patterns, or any other activity within or 
-            outside the app.
-        </p>
-    </div>
+            applyTheme();
+            applyLanguage();
+        }
 
-    <div class="section">
-        <div class="section-number">6</div>
-        <h2>Third-Party Services</h2>
-        <p>
-            In-app purchases are processed securely through the 
-            Google Play Store (Android) or Apple App Store (iOS). 
-            Payment information is handled entirely by these 
-            platforms — we never see, collect, or store your 
-            payment details. No other third-party services are 
-            used that collect user data.
-        </p>
-    </div>
+        // ========== Theme Toggle ==========
+        function toggleTheme() {
+            currentTheme = currentTheme === 'light' ? 'dark' : 'light';
+            applyTheme();
+        }
 
-    <div class="section">
-        <div class="section-number">7</div>
-        <h2>Children's Privacy</h2>
-        <p>
-            unfinished does not knowingly collect any information 
-            from children under the age of 13. The app does not 
-            require any personal information to function. It is 
-            safe for users of all ages.
-        </p>
-    </div>
+        function applyTheme() {
+            document.documentElement.setAttribute('data-theme', currentTheme);
 
-    <div class="section">
-        <div class="section-number">8</div>
-        <h2>Data Deletion</h2>
-        <p>
-            Since all data is stored locally on your device, you 
-            have complete control over it at all times. You can 
-            delete individual items within the app, or delete all 
-            data by uninstalling the app. No data exists on any 
-            external server to delete.
-        </p>
-    </div>
+            const t = translations[currentLang];
+            document.getElementById('themeLabel').textContent = t.themeLabel[currentTheme];
 
-    <div class="section">
-        <div class="section-number">9</div>
-        <h2>Changes to This Policy</h2>
-        <p>
-            We may update this privacy policy from time to time. 
-            Any changes will be reflected on this page with an 
-            updated effective date. Continued use of the app after 
-            changes constitutes acceptance of the updated policy.
-        </p>
-    </div>
+            // Swap icon
+            const icon = document.getElementById('themeIcon');
+            if (currentTheme === 'dark') {
+                icon.innerHTML = '<circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>';
+            } else {
+                icon.innerHTML = '<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>';
+            }
+        }
 
-    <div class="contact-card">
-        <p>
-            If you have any questions or concerns about this 
-            privacy policy or the unfinished app, please 
-            contact us at:
-        </p>
-        <a href="mailto:wijha.studio@gmail.com">
-            wijha.studio@gmail.com
-        </a>
-        <p style="margin-top: 12px; font-size: 13px; color: #8b8680;">
-            Wijha Studio
-        </p>
-    </div>
+        // ========== Language Toggle ==========
+        function toggleLanguage() {
+            currentLang = currentLang === 'en' ? 'ar' : 'en';
+            applyLanguage();
+        }
 
-    <div class="footer">
-        <p>
-            <a href="https://wijhastudio.github.io">Wijha Studio</a>
-            · Made with care for everyone with unfinished things
-        </p>
-    </div>
+        function applyLanguage() {
+            const t = translations[currentLang];
+            const isRTL = currentLang === 'ar';
+
+            // Set direction
+            document.documentElement.lang = currentLang;
+            document.documentElement.dir = isRTL ? 'rtl' : 'ltr';
+
+            // Update static text
+            document.getElementById('pageTitle').textContent = t.pageTitle;
+            document.getElementById('effectiveDate').textContent = t.effectiveDate;
+            document.getElementById('contactTitle').textContent = t.contactTitle;
+            document.getElementById('contactDesc').textContent = t.contactDesc;
+            document.getElementById('footerTagline').textContent = t.footerTagline;
+            document.getElementById('langLabel').textContent = t.langLabel;
+            document.getElementById('themeLabel').textContent = t.themeLabel[currentTheme];
+
+            // Rebuild sections
+            const container = document.getElementById('sections-container');
+            container.innerHTML = '';
+
+            t.sections.forEach((section, index) => {
+                const div = document.createElement('div');
+                div.className = 'section fade-in';
+                div.style.animationDelay = `${(index + 1) * 0.05}s`;
+                div.innerHTML = `
+                    <div class="section-header">
+                        <div class="section-number">${index + 1}</div>
+                        <h2>${section.title}</h2>
+                    </div>
+                    <p>${section.body}</p>
+                `;
+                container.appendChild(div);
+            });
+        }
+
+        // ========== Run ==========
+        init();
+    </script>
 
 </body>
 </html>
