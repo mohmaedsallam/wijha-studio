@@ -4,6 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Privacy Policy — unfinished</title>
+    
+    <!-- ========== App Icon (Favicon) ========== -->
+    <!-- Place your icon file in the same folder as this HTML file -->
+    <link rel="icon" type="image/png" href="app-icon.png">
+    <link rel="apple-touch-icon" href="app-icon.png">
+    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&family=Noto+Sans+Arabic:wght@400;600;700&display=swap" rel="stylesheet">
@@ -122,6 +128,7 @@
             padding: 32px 0 40px;
         }
 
+        /* App Icon — supports both image and letter fallback */
         .app-icon {
             width: 72px;
             height: 72px;
@@ -137,6 +144,14 @@
             font-style: italic;
             font-family: var(--font-latin);
             transition: all var(--transition);
+            overflow: hidden;
+        }
+
+        .app-icon img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 20px;
         }
 
         .app-name {
@@ -347,6 +362,10 @@
                 border-radius: 16px;
             }
 
+            .app-icon img {
+                border-radius: 16px;
+            }
+
             .app-name {
                 font-size: 20px;
             }
@@ -367,7 +386,7 @@
 
         <!-- Controls -->
         <div class="controls">
-            <button class="control-btn" id="langToggle" onclick="toggleLanguage()">
+            <button class="control-btn" id="langToggle" onclick="cycleLanguage()">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                     <circle cx="12" cy="12" r="10"></circle>
                     <line x1="2" y1="12" x2="22" y2="12"></line>
@@ -385,11 +404,14 @@
 
         <!-- Header -->
         <div class="header">
-            <div class="app-icon">u</div>
+            <!-- App Icon: replace 'app-icon.png' with your icon file path -->
+            <div class="app-icon">
+                <img src="app-icon.png" alt="unfinished app icon" onerror="this.style.display='none'; this.parentElement.textContent='u';">
+            </div>
             <div class="app-name">unfinished</div>
             <div class="page-title" id="pageTitle">Privacy Policy</div>
             <div class="effective-date" id="effectiveDate">
-                Effective date: January 1, 2025. Your privacy is foundational to unfinished. Here's exactly how we handle — or rather, don't handle — your data.
+                Effective date: May 1, 2026. Your privacy is foundational to this app. Here's exactly how we handle — or rather, don't handle — your data.
             </div>
         </div>
 
@@ -426,16 +448,16 @@
         const translations = {
             en: {
                 pageTitle: "Privacy Policy",
-                effectiveDate: "Effective date: January 1, 2025. Your privacy is foundational to unfinished. Here's exactly how we handle — or rather, don't handle — your data.",
+                effectiveDate: "Effective date: May 1, 2026. Your privacy is foundational to this app. Here's exactly how we handle — or rather, don't handle — your data.",
                 contactTitle: "Questions?",
                 contactDesc: "If you have any questions about this privacy policy, reach out to us.",
                 footerTagline: "Made with care for everyone with unfinished things",
-                langLabel: "العربية",
+                langLabel: "Français",
                 themeLabel: { light: "Dark", dark: "Light" },
                 sections: [
                     {
                         title: "DATA COLLECTION",
-                        body: "unfinished does not collect any personal data. All information you enter — item names, notes, emotional scores, decisions — is stored exclusively on your device using local storage. We have no servers, no databases, and no way to access your data."
+                        body: "Unfinished does not collect any personal data. All information you enter — item names, notes, emotional scores, decisions — is stored exclusively on your device using local storage. We have no servers, no databases, and no way to access your data."
                     },
                     {
                         title: "LOCAL STORAGE ONLY",
@@ -451,7 +473,7 @@
                     },
                     {
                         title: "CHILDREN'S PRIVACY",
-                        body: "unfinished is not directed toward children under 13. We do not knowingly collect data from children. If you believe your child has used this app, please note that no data is transmitted or stored on our end."
+                        body: "This app is not directed toward children under 13. We do not knowingly collect data from children. If you believe your child has used this app, please note that no data is transmitted or stored on our end."
                     },
                     {
                         title: "CHANGES TO THIS POLICY",
@@ -459,9 +481,79 @@
                     }
                 ]
             },
+            fr: {
+                pageTitle: "Politique de confidentialité",
+                effectiveDate: "Date d'effet : 1er mai 2026. Ta vie privée est fondamentale pour cette app. Voici exactement comment nous gérons — ou plutôt, ne gérons pas — tes données.",
+                contactTitle: "Des questions ?",
+                contactDesc: "Si tu as des questions sur cette politique de confidentialité, contacte-nous.",
+                footerTagline: "Fait avec soin pour tous ceux qui ont des choses inachevées",
+                langLabel: "Español",
+                themeLabel: { light: "Sombre", dark: "Clair" },
+                sections: [
+                    {
+                        title: "COLLECTE DE DONNÉES",
+                        body: "Unfinished ne collecte aucune donnée personnelle. Toutes les informations que tu saisis — noms d'éléments, notes, scores émotionnels, décisions — sont stockées exclusivement sur ton appareil avec un stockage local. Nous n'avons pas de serveurs, pas de bases de données, et aucun moyen d'accéder à tes données."
+                    },
+                    {
+                        title: "STOCKAGE LOCAL UNIQUEMENT",
+                        body: "Les données de ton étagère vivent entièrement sur ton appareil. Elles ne sont jamais transmises à un service externe. Désinstaller l'app ou effacer les données du navigateur supprimera définitivement toutes tes données. Nous recommandons d'utiliser la fonction Exporter pour sauvegarder ton étagère."
+                    },
+                    {
+                        title: "PAS DE PISTAGE",
+                        body: "Nous n'utilisons pas d'analyses, de traceurs publicitaires ou de SDK tiers qui collectent le comportement utilisateur. Nous ne savons pas comment tu utilises l'app, quels éléments tu ajoutes, ou quelles décisions tu prends."
+                    },
+                    {
+                        title: "PHOTOS",
+                        body: "Les photos que tu ajoutes aux éléments sont stockées localement sur le système de fichiers de ton appareil. Elles ne sont pas téléchargées, transmises ou accessibles à quiconque sauf toi."
+                    },
+                    {
+                        title: "CONFIDENTIALITÉ DES ENFANTS",
+                        body: "Cette app n'est pas destinée aux enfants de moins de 13 ans. Nous ne collectons pas sciemment de données d'enfants. Si tu penses que ton enfant a utilisé cette app, sache qu'aucune donnée n'est transmise ou stockée de notre côté."
+                    },
+                    {
+                        title: "MODIFICATIONS DE CETTE POLITIQUE",
+                        body: "Si nous changeons un jour nos pratiques de confidentialité, cette politique sera mise à jour et le changement sera communiqué via une mise à jour de l'app. Nous nous engageons à garder cette app privée et à respecter ton espace émotionnel."
+                    }
+                ]
+            },
+            es: {
+                pageTitle: "Política de privacidad",
+                effectiveDate: "Fecha de vigencia: 1 de mayo de 2026. Tu privacidad es fundamental para esta app. Aquí está exactamente cómo manejamos — o más bien, no manejamos — tus datos.",
+                contactTitle: "¿Preguntas?",
+                contactDesc: "Si tienes alguna pregunta sobre esta política de privacidad, contáctanos.",
+                footerTagline: "Hecho con cariño para todos los que tienen cosas inacabadas",
+                langLabel: "العربية",
+                themeLabel: { light: "Oscuro", dark: "Claro" },
+                sections: [
+                    {
+                        title: "RECOLECCIÓN DE DATOS",
+                        body: "Unfinished no recolecta ningún dato personal. Toda la información que ingresas — nombres de elementos, notas, puntajes emocionales, decisiones — se almacena exclusivamente en tu dispositivo usando almacenamiento local. No tenemos servidores, ni bases de datos, ni forma de acceder a tus datos."
+                    },
+                    {
+                        title: "SOLO ALMACENAMIENTO LOCAL",
+                        body: "Los datos de tu estante viven enteramente en tu dispositivo. Nunca se transmiten a ningún servicio externo. Desinstalar la app o limpiar los datos del navegador eliminará permanentemente todos tus datos. Recomendamos usar la función de Exportar para respaldar tu estante."
+                    },
+                    {
+                        title: "SIN RASTREO",
+                        body: "No usamos analíticas, rastreadores publicitarios ni SDKs de terceros que recolecten comportamiento del usuario. No sabemos cómo usas la app, qué elementos agregas o qué decisiones tomas."
+                    },
+                    {
+                        title: "FOTOS",
+                        body: "Las fotos que agregas a los elementos se almacenan localmente en el sistema de archivos de tu dispositivo. No se suben, transmiten ni son accesibles a nadie excepto a ti."
+                    },
+                    {
+                        title: "PRIVACIDAD DE LOS NIÑOS",
+                        body: "Esta app no está dirigida a niños menores de 13 años. No recolectamos a sabiendas datos de niños. Si crees que tu hijo ha usado esta app, ten en cuenta que no se transmiten ni almacenan datos de nuestro lado."
+                    },
+                    {
+                        title: "CAMBIOS EN ESTA POLÍTICA",
+                        body: "Si alguna vez cambiamos nuestras prácticas de privacidad, esta política se actualizará y el cambio se comunicará a través de una actualización de la app. Estamos comprometidos a mantener esta app privada y respetar tu espacio emocional."
+                    }
+                ]
+            },
             ar: {
                 pageTitle: "سياسة الخصوصية",
-                effectiveDate: "تاريخ السريان: 1 يناير 2025. خصوصيتك أساسية في unfinished. إليك بالضبط كيف نتعامل — أو بالأحرى، لا نتعامل — مع بياناتك.",
+                effectiveDate: "تاريخ السريان: 1 مايو 2026. خصوصيتك أساسية في هذا التطبيق. إليك بالضبط كيف نتعامل — أو بالأحرى، لا نتعامل — مع بياناتك.",
                 contactTitle: "أسئلة؟",
                 contactDesc: "إذا كان لديك أي أسئلة حول سياسة الخصوصية هذه، تواصل معنا.",
                 footerTagline: "صُنع بعناية لكل من لديه أشياء لم يُكملها",
@@ -470,7 +562,7 @@
                 sections: [
                     {
                         title: "جمع البيانات",
-                        body: "لا يجمع unfinished أي بيانات شخصية. جميع المعلومات التي تدخلها — أسماء العناصر، الملاحظات، الدرجات العاطفية، القرارات — تُخزن حصريًا على جهازك باستخدام التخزين المحلي. ليس لدينا خوادم، لا قواعد بيانات، ولا طريقة للوصول إلى بياناتك."
+                        body: "لا يجمع التطبيق أي بيانات شخصية. جميع المعلومات التي تدخلها — أسماء العناصر، الملاحظات، الدرجات العاطفية، القرارات — تُخزن حصريًا على جهازك باستخدام التخزين المحلي. ليس لدينا خوادم، لا قواعد بيانات، ولا طريقة للوصول إلى بياناتك."
                     },
                     {
                         title: "التخزين المحلي فقط",
@@ -486,7 +578,7 @@
                     },
                     {
                         title: "خصوصية الأطفال",
-                        body: "unfinished ليس موجهًا للأطفال تحت سن 13. لا نجمع بيانات من الأطفال عن علم. إذا كنت تعتقد أن طفلك استخدم هذا التطبيق، يرجى ملاحظة أنه لا يتم نقل أو تخزين أي بيانات من جانبنا."
+                        body: "هذا التطبيق ليس موجهًا للأطفال تحت سن 13. لا نجمع بيانات من الأطفال عن علم. إذا كنت تعتقد أن طفلك استخدم هذا التطبيق، يرجى ملاحظة أنه لا يتم نقل أو تخزين أي بيانات من جانبنا."
                     },
                     {
                         title: "التغييرات على هذه السياسة",
@@ -497,6 +589,7 @@
         };
 
         // ========== State ==========
+        const langOrder = ['en', 'fr', 'es', 'ar'];
         let currentLang = 'en';
         let currentTheme = 'light';
 
@@ -509,7 +602,8 @@
 
             // Check URL params
             const params = new URLSearchParams(window.location.search);
-            if (params.get('lang') === 'ar') currentLang = 'ar';
+            const langParam = params.get('lang');
+            if (langParam && langOrder.includes(langParam)) currentLang = langParam;
             if (params.get('theme') === 'dark') currentTheme = 'dark';
             if (params.get('theme') === 'light') currentTheme = 'light';
 
@@ -538,9 +632,11 @@
             }
         }
 
-        // ========== Language Toggle ==========
-        function toggleLanguage() {
-            currentLang = currentLang === 'en' ? 'ar' : 'en';
+        // ========== Language Cycle: en → fr → es → ar → en ==========
+        function cycleLanguage() {
+            const currentIndex = langOrder.indexOf(currentLang);
+            const nextIndex = (currentIndex + 1) % langOrder.length;
+            currentLang = langOrder[nextIndex];
             applyLanguage();
         }
 
